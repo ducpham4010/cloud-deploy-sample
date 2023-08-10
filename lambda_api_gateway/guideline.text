@@ -61,7 +61,7 @@ variable "aws_region" {
   default = "ap-southeast-1"
 }
 ------------------------------------------------------------
-- Chạy lệnh 
+- Chạy lệnh :
 $ terraform init
 $ terraform apply
 => lúc này trên S3 tạo ra bucket có tên : learn-terraform-functions_xxxxxxxxxxxxxxxxxxxxxxx
@@ -103,7 +103,7 @@ resource "aws_s3_object" "lambda_hello_world" {
   etag = filemd5(data.archive_file.lambda_hello_world.output_path)
 }
 ------------------------------------------------------------
-- Chạy lệnh 
+- Chạy lệnh :
 $ terraform apply
 =>> Lúc này trong bucket vừa tạo ở B2 sẽ có file hello-world.zip
 
@@ -234,7 +234,7 @@ output "base_url" {
   value = aws_apigatewayv2_stage.lambda.invoke_url
 }
 ------------------------------------------------------------
--- Chạy lệnh ::
+-- Chạy lệnh :
 $ terraform apply
 =>> Lúc này 1 API GATEWAY được tạo ra và gắn với lambda function đã tạo 
 B6. Update Lambda Function
@@ -259,10 +259,12 @@ module.exports.handler = async (event) => {
     }
   }
 ------------------------------------------------------------
-- Chạy lệnh :;
+- Chạy lệnh :
 $ terraform apply 
 =>> Lúc này file zip và lambda function sẽ được cập nhât code mới
 B7. Destroy tài nguyên
 Chạy lệnh :
 $ terraform destroy
+
+Nguồn : https://developer.hashicorp.com/terraform/tutorials/aws/lambda-api-gateway
 
